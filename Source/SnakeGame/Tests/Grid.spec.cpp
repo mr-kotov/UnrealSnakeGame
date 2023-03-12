@@ -12,16 +12,18 @@ DEFINE_SPEC(FSnakeGrid, "Snake",
 void FSnakeGrid::Define()
 {
     using namespace Snake;
-    
-    Describe("CoreGrid", [this]()
-    {
-        It("DimsMightIncludeWalls", [this]()
+
+    Describe("CoreGrid",
+        [this]()
         {
-            Grid grid(Dim{10, 10});
-            TestTrueExpr(grid.dim().height == 12);
-            TestTrueExpr(grid.dim().width == 12);
+            It("DimsMightIncludeWalls",
+                [this]()
+                {
+                    Grid grid(Dim{10, 10});
+                    TestTrueExpr(grid.dim().height == 12);
+                    TestTrueExpr(grid.dim().width == 12);
+                });
         });
-    });
 }
 
 #endif

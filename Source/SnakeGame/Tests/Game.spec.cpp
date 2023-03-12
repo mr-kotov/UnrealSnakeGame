@@ -14,15 +14,17 @@ void FSnakeGame::Define()
 {
     using namespace Snake;
 
-    Describe("CoreGame", [this]()
-    {
-        It("GridShouldExists", [this]()
+    Describe("CoreGame",
+        [this]()
         {
-            const Settings GS{10, 10};
-            const auto CoreGame = Game(GS);
-            TestTrueExpr(CoreGame.grid().IsValid());
+            It("GridShouldExists",
+                [this]()
+                {
+                    const Settings GS{10, 10};
+                    const auto CoreGame = Game(GS);
+                    TestTrueExpr(CoreGame.grid().IsValid());
+                });
         });
-    });
 }
 
 #endif
