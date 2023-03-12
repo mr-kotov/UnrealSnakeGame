@@ -16,21 +16,24 @@ END_DEFINE_SPEC(FSnakeWorld)
 void FSnakeWorld::Define()
 {
     using namespace LifeExe::Test;
-    Describe("WorldGrid", [this]()
-    {
-        BeforeEach([this]()
-            {
-                AutomationOpenMap("GameLevel");
-                World = GetTestGameWorld();
-            });
-        It("OnlyOneValidGridActorShouldExists", [this]()
+    Describe("WorldGrid",
+        [this]()
         {
-            TArray<AActor*> Grids;
-            UGameplayStatics::GetAllActorsOfClass(World, ASG_Grid::StaticClass(), Grids);
-            TestTrueExpr(Grids.Num() == 1);
-            TestNotNull("Grid actor exists", Grids[0]);
+            BeforeEach(
+                [this]()
+                {
+                    AutomationOpenMap("GameLevel");
+                    World = GetTestGameWorld();
+                });
+            It("OnlyOneValidGridActorShouldExists",
+                [this]()
+                {
+                    TArray<AActor*> Grids;
+                    UGameplayStatics::GetAllActorsOfClass(World, ASG_Grid::StaticClass(), Grids);
+                    TestTrueExpr(Grids.Num() == 1);
+                    TestNotNull("Grid actor exists", Grids[0]);
+                });
         });
-    });
 }
 
 #endif
